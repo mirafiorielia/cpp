@@ -1,9 +1,9 @@
 # C++
  C++ labs and exercises by Elia Mirafiori
 
-1- g++ -c main.cpp //compile program and link all projects file, then generate obj file
-2- g++ -o main main.o //generate exe file from obj file
-3- ./main //run the exe file
+1) g++ -c main.cpp //compile program and link all projects file, then generate obj file
+2) g++ -o main main.o //generate exe file from obj file
+3) ./main //run the exe file
 
 ## g++ main.cpp
 This compiles and links main.cpp to produce a default target executable file a.out in present working directory.
