@@ -7,18 +7,13 @@ using namespace std;
 
 int main()
 {
-    int x = 10;
-    int *p = &x;
+    int a[10];
+    int b[10];
 
-    cout << x << '\n';
-    cout << &x << '\n';
-    cout << p << '\n';
-    cout << *p << '\n';
+    int *p = &a[9];
+    *p = 11;
+    a[9] = 6;
 
-    *p = 5;
-
-    cout << x << '\n';
-    cout << &x << '\n';
     cout << p << '\n';
     cout << *p << '\n';
 
