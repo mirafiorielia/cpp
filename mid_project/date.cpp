@@ -1,7 +1,5 @@
 #include "date.h"
 
-using namespace Chrono;
-
 Date::Date()
     : year{2000}, month{Month(9)}, day{Day(26)}
 {
