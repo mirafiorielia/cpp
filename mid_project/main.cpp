@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void clearPointer(void*);
+void clearPointer(void *);
 
 int main()
 {
@@ -19,15 +19,8 @@ int main()
     cout << p << '\n';
     cout << *p << '\n';
 
-    clearPointer(p);
+    delete p;
+    p = nullptr;
 
     return 0;
-}
-
-template <typename T>
-void clearPointer(T* pointer) {
-    delete pointer;
-    pointer = nullptr;
-
-    return;
 }
