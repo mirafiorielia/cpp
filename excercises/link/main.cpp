@@ -36,31 +36,24 @@ Link *insert(Link *p, Link *n)
     return n;
 }
 
-Link *add(Link *p, Link *n)
+Link *add(Link *head, Link *link)
 {
-    while (p != nullptr)
-    {
-        if (p->succ == nullptr)
-        {
-            n->prev = p;
-            p->succ = n;
-            cout << "N prev " << n->prev->value << '\n';
-            cout << "N prev prev" << n->prev->prev->value << '\n';
-            // cout << "N succ" << n->succ << '\n';
-            cout << "P succ " << p->succ->value << '\n';
-            cout << "P prev " << p->prev->value << "\n\n";
-            return p;
-        }
-        cout << "BEFORE P value " << p->value << '\n';
-        cout << "BEFORE P succ " << p->succ->value << '\n';
-        if (p->prev) cout << "BEFORE P prev " << p->prev->value << '\n';
-        p = p->succ;
-        cout << "AFTER P value " << p->value << '\n';
-        if (p->succ) cout << "AFTER P succ " << p->succ->value << '\n';
-        cout << "AFTER P prev " << p->prev->value << "\n\n";
+    link->succ = nullptr;
+
+    if (head == nullptr) {
+        link->prev = nullptr;
+        head = link;
+        return head;
     }
 
-    return n;
+    while (head->succ != nullptr) {
+        head = head->succ;
+    }
+
+    head->succ = link;
+    link->prev = head;
+
+    return head;
 }
 
 int main()
@@ -68,6 +61,8 @@ int main()
     cout << "GODS\n";
 
     Link *gods = new Link{"Thor"};
+
+    cout << sizeof(gods) << '\n';
 
     gods = new Link{"Odin", nullptr, gods};
     gods->succ->prev = gods;
@@ -79,8 +74,11 @@ int main()
     modern_gods = insert(modern_gods, new Link{"Baldassarre"});
     modern_gods = insert(modern_gods, new Link{"Bjarne"});
 
-    modern_gods = add(modern_gods, new Link{"Ghidoni"});
-    modern_gods = add(modern_gods, new Link{"Elia"});
+    modern_gods = insert(modern_gods, new Link{"Ghidoni"});
+    modern_gods = insert(modern_gods, new Link{"Elia"});
+    modern_gods = insert(modern_gods, new Link{"Jasmin"});
+    modern_gods = insert(modern_gods, new Link{"Lisa"});
+    modern_gods = insert(modern_gods, new Link{"Pietro"});
 
     // printValues(gods);
     printValues(modern_gods);
