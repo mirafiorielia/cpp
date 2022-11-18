@@ -5,31 +5,6 @@
 
 using namespace std;
 
-/*
-newLink is inserted between persitentLink and its previous link
-x -> newLink -> persistentLink
-*/
-Link *insert(Link *p, Link *n)
-{
-    cout << !n << '\n';
-    if (!n)
-        return p;
-
-    cout << !p << '\n';
-    if (!p)
-        return n;
-
-    n->succ = p;
-
-    cout << p->prev << '\n';
-    if (p->prev)
-        p->prev->succ = n;
-
-    n->prev = p->prev;
-    p->prev = n;
-    return n;
-}
-
 void printValues(Link *gods)
 {
     while (gods != nullptr)
@@ -39,11 +14,61 @@ void printValues(Link *gods)
     }
 }
 
+/*
+newLink is inserted between persitentLink and its previous link
+x -> newLink -> persistentLink
+*/
+Link *insert(Link *p, Link *n)
+{
+    if (!n)
+        return p;
+
+    if (!p)
+        return n;
+
+    n->succ = p;
+
+    if (p->prev)
+        p->prev->succ = n;
+
+    n->prev = p->prev;
+    p->prev = n;
+    return n;
+}
+
+Link *add(Link *p, Link *n)
+{
+    if (!n)
+        return p;
+
+    if (!p)
+        return n;
+
+    while (p != nullptr)
+    {
+
+        cout << "P\n";
+        cout << p->value << '\n';
+
+        if (p->succ == nullptr)
+        {
+            n->prev = p;
+            p->succ = n;
+            return;
+        }
+        else
+        {
+            p = p->succ;
+        }
+    }
+
+    return n;
+}
+
 int main()
 {
     cout << "GODS\n";
 
-    /*
     Link *gods = new Link{"Thor"};
 
     gods = new Link{"Odin", nullptr, gods};
@@ -51,13 +76,15 @@ int main()
 
     gods = new Link{"Freia", nullptr, gods};
     gods->succ->prev = gods;
-    */
 
     Link *modernGods = new Link{"Gesù"};
     modernGods = insert(modernGods, new Link("Baldassarre"));
     modernGods = insert(modernGods, new Link("Bjarne"));
 
-    // printValues(gods);
+    modernGods = add(modernGods, new Link("elia"));
+    modernGods = add(modernGods, new Link("jasmin"));
+
+    printValues(gods);
     printValues(modernGods);
 
     return 0;
