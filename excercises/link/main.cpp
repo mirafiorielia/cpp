@@ -15,25 +15,25 @@ void printValues(Link *gods)
 }
 
 /*
-newLink is inserted between persitentLink and its previous link
-x -> newLink -> persistentLink
+link is inserted between head and its previous node
+x -> link -> head
 */
-Link *insert(Link *p, Link *n)
+Link *insert(Link *head, Link *link)
 {
-    if (!n)
-        return p;
+    if (!link)
+        return head;
 
-    if (!p)
-        return n;
+    if (!head) // (head != nullptr) ??
+        return link;
 
-    n->succ = p;
+    link->succ = head;
 
-    if (p->prev)
-        p->prev->succ = n;
+    if (head->prev)
+        head->prev->succ = link;
 
-    n->prev = p->prev;
-    p->prev = n;
-    return n;
+    link->prev = head->prev;
+    head->prev = link;
+    return link;
 }
 
 Link *add(Link *head, Link *link)
@@ -43,7 +43,7 @@ Link *add(Link *head, Link *link)
     if (head == nullptr) {
         link->prev = nullptr;
         head = link;
-        return head;
+        return link;
     }
 
     while (head->succ != nullptr) {
@@ -53,7 +53,7 @@ Link *add(Link *head, Link *link)
     head->succ = link;
     link->prev = head;
 
-    return head;
+    return link;
 }
 
 int main()
