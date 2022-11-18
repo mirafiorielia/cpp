@@ -38,28 +38,26 @@ Link *insert(Link *p, Link *n)
 
 Link *add(Link *p, Link *n)
 {
-    if (!n)
-        return p;
-
-    if (!p)
-        return n;
-
     while (p != nullptr)
     {
-
-        cout << "P\n";
-        cout << p->value << '\n';
-
         if (p->succ == nullptr)
         {
             n->prev = p;
             p->succ = n;
-            return;
+            cout << "N prev " << n->prev->value << '\n';
+            cout << "N prev prev" << n->prev->prev->value << '\n';
+            // cout << "N succ" << n->succ << '\n';
+            cout << "P succ " << p->succ->value << '\n';
+            cout << "P prev " << p->prev->value << "\n\n";
+            return p;
         }
-        else
-        {
-            p = p->succ;
-        }
+        cout << "BEFORE P value " << p->value << '\n';
+        cout << "BEFORE P succ " << p->succ->value << '\n';
+        if (p->prev) cout << "BEFORE P prev " << p->prev->value << '\n';
+        p = p->succ;
+        cout << "AFTER P value " << p->value << '\n';
+        if (p->succ) cout << "AFTER P succ " << p->succ->value << '\n';
+        cout << "AFTER P prev " << p->prev->value << "\n\n";
     }
 
     return n;
@@ -77,15 +75,15 @@ int main()
     gods = new Link{"Freia", nullptr, gods};
     gods->succ->prev = gods;
 
-    Link *modernGods = new Link{"Gesù"};
-    modernGods = insert(modernGods, new Link("Baldassarre"));
-    modernGods = insert(modernGods, new Link("Bjarne"));
+    Link *modern_gods = new Link{"Gesù"};
+    modern_gods = insert(modern_gods, new Link{"Baldassarre"});
+    modern_gods = insert(modern_gods, new Link{"Bjarne"});
 
-    modernGods = add(modernGods, new Link("elia"));
-    modernGods = add(modernGods, new Link("jasmin"));
+    modern_gods = add(modern_gods, new Link{"Ghidoni"});
+    modern_gods = add(modern_gods, new Link{"Elia"});
 
-    printValues(gods);
-    printValues(modernGods);
+    // printValues(gods);
+    printValues(modern_gods);
 
     return 0;
 }
