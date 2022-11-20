@@ -13,7 +13,7 @@ class Book {
          std::string isbn, Date date, bool available);
 
     // destructor
-    ~Book();
+    //~Book();
 
     // get general info funcs
     std::string get_isbn() const;          // return book isbn

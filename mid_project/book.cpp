@@ -1,5 +1,6 @@
 #include "book.h"
 
+using std::cout;
 using std::endl;
 using std::ostream;
 using std::regex;
@@ -7,15 +8,27 @@ using std::string;
 
 Book::Book()
     : isbn{"nnn-nnn-nnn-x"}, title{"dummy"}, auth_name{"dummy"}, auth_surname{"dummy"}, date{Date()}, available{true} {
+    if (!check_isbn()) {
+        isbn = "invalid isbn";
+        cout << get_isbn() << endl;
+    }
 }
 
 Book::Book(std::string auth_name, std::string auth_surname, std::string title, std::string isbn)
     : isbn{isbn}, title{title}, auth_name{auth_name}, auth_surname{auth_surname}, date{Date()}, available{true} {
+    if (!check_isbn()) {
+        isbn = "invalid isbn";
+        cout << get_isbn() << endl;
+    }
 }
 
 Book::Book(std::string auth_name, std::string auth_surname, std::string title,
            std::string isbn, Date date = Date(), bool available = true)
     : isbn{isbn}, title{title}, auth_name{auth_name}, auth_surname{auth_surname}, date{date}, available{available} {
+    if (!check_isbn()) {
+        isbn = "invalid isbn";
+        cout << get_isbn() << endl;
+    }
 }
 
 string Book::get_isbn() const {

@@ -16,7 +16,7 @@ class Date {
     Date(int year, int month, int day);
 
     // destructor
-    ~Date();
+    //~Date();
 
     // getter funcs
     int get_year() const;          // get date year
