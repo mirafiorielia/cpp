@@ -38,22 +38,23 @@ Link *insert(Link *head, Link *link)
 
 Link *add(Link *head, Link *link)
 {
+    Link *last = head;
     link->succ = nullptr;
 
-    if (head == nullptr) {
+    if (last == nullptr) {
         link->prev = nullptr;
-        head = link;
-        return link;
+        last = link;
+        return last;
     }
 
-    while (head->succ != nullptr) {
-        head = head->succ;
+    while (last->succ != nullptr) {
+        last = last->succ;
     }
 
-    head->succ = link;
-    link->prev = head;
+    last->succ = link;
+    link->prev = last;
 
-    return link;
+    return head;
 }
 
 int main()
@@ -74,11 +75,11 @@ int main()
     modern_gods = insert(modern_gods, new Link{"Baldassarre"});
     modern_gods = insert(modern_gods, new Link{"Bjarne"});
 
-    modern_gods = insert(modern_gods, new Link{"Ghidoni"});
-    modern_gods = insert(modern_gods, new Link{"Elia"});
-    modern_gods = insert(modern_gods, new Link{"Jasmin"});
-    modern_gods = insert(modern_gods, new Link{"Lisa"});
-    modern_gods = insert(modern_gods, new Link{"Pietro"});
+    modern_gods = add(modern_gods, new Link{"Ghidoni"});
+    modern_gods = add(modern_gods, new Link{"Elia"});
+    modern_gods = add(modern_gods, new Link{"Jasmin"});
+    modern_gods = add(modern_gods, new Link{"Lisa"});
+    modern_gods = add(modern_gods, new Link{"Pietro"});
 
     // printValues(gods);
     printValues(modern_gods);
