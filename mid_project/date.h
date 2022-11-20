@@ -1,31 +1,31 @@
 #include "enums.cpp"
 
-class Date
-{
-public:
-    // errors report
-    class Invalid
-    {
+class Date {
+   private:
+    int year;
+    Month month;
+    int day;
+
+   public:
+    // error report
+    class Invalid {
     };
 
     // constructors
     Date();
     Date(int year, int month, int day);
 
-    // setter funcs
-    int set_year();
-    int set_month();
-    int set_day();
+    // TODO later setter funcs
+    // int set_year();
+    // int set_month();
+    // int set_day();
 
     // getter funcs
-    int get_year();
-    int get_month();
-    int get_day();
+    int get_year() const;   // get date year
+    int get_month() const;  // get date month
+    int get_day() const;    // get date day
 
-private:
-    int year;
-    Month month;
-    Day day;
+    bool is_leap() const;  // check if the year is leap
 
     bool is_valid();
 };

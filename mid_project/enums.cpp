@@ -14,15 +14,3 @@ enum Month
     november,
     december
 };
-
-// day 0..6
-enum Day
-{
-    monday = 0,
-    tuesday,
-    wednesday,
-    thursday,
-    friday,
-    saturday,
-    sunday
-};
