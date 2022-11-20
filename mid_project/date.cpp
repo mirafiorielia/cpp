@@ -1,72 +1,83 @@
 #include "date.h"
 
+using std::endl;
+using std::ostream;
+using std::string;
+using std::to_string;
+
 Date::Date()
-    : year{2000}, month{Month(9)}, day{26} {
-    if (!is_valid()) {
-        throw Invalid();
-    }
+    : year{0}, month{Month(9)}, day{26} {
+    if (!is_valid()) get_date();
 }
 
 Date::Date(int year, int month, int day)
-    : year{year}, month{Month(9)}, day{26} {
-    if (!is_valid()) {
-        throw Invalid();
-    }
+    : year{year}, month{Month(month)}, day{day} {
+    if (!is_valid()) get_date();
 }
 
-bool Date::is_valid() {
-    if (get_month() < 0 || get_month() > 11) {
-        return false;
-    }
+int Date::get_year() const {
+    return year;
+}
 
-    if (is_leap() && get_month() == 1) {
-        if (get_day() < 1 || get_day() > 29) {
-            return false;
-        }
-    } else {
-        int m = get_month();
-        if (m == 3 || m == 5 || m == 9 || m == 11) {
-                }
+int Date::get_month() const {
+    return month;
+}
 
-        if (get_month() < 7) {
-            if (get_month() % 2 == 0) {
-                if (get_day() < 1 || get_day() > 31) {
-                    return false;
-                }
-            } else {
-                if (get_day() < 1 || get_day() > 30) {
-                    return false;
-                }
-            }
-        } else {
-            if (get_month() % 2 == 1) {
-                if (get_day() < 1 || get_day() > 31) {
-                    return false;
-                }
-            } else {
-                if (get_day() < 1 || get_day() > 30) {
-                    return false;
-                }
-            }
-        }
-    }
+int Date::get_day() const {
+    return day;
+}
+
+string Date::get_date() const {
+    if (get_year() == 0) return "invalid date";
+    return to_string(get_day()) + ' ' + to_string(get_month()) + ' ' + to_string(get_year());
 }
 
 bool Date::is_leap() const {
     // If a year is multiple of 400,
     // then it is a leap year
-    if (get_year() % 400 == 0)
-        return true;
+    if (get_year() % 400 == 0) return true;
 
     // Else If a year is multiple of 100,
     // then it is not a leap year
-    if (get_year() % 100 == 0)
-        return false;
+    if (get_year() % 100 == 0) return false;
 
     // Else If a year is multiple of 4,
     // then it is a leap year
-    if (get_year() % 4 == 0)
-        return true;
+    if (get_year() % 4 == 0) return true;
 
     return false;
+}
+
+/*
+func to check month or day is in range
+*/
+bool Date::check_date(int x, int max, int min = 1) {
+    if (x < min || x > max) return false;
+    return true;
+}
+
+bool Date::is_valid() {
+    if (get_year() == 0) return false;
+
+    int m = get_month();  // get month
+    int d = get_day();    // get day
+
+    return check_date(d, 11, 0);  // check month between 0 and 11 ref: enums.cpp
+
+    // check month with 30 days
+    if (m == 3 || m == 5 || m == 8 || m == 10) return check_date(d, 30);
+
+    if (m == 1) {                      // check if month is feb
+        if (is_leap()) {               // check if leap year
+            return check_date(d, 29);  // check day between 1 and 29
+        }
+        return check_date(d, 28);  // check day between 1 and 28
+    }
+
+    return check_date(d, 31);  // check day between 1 and 31
+}
+
+ostream& operator<<(ostream& os, const Date& date) {
+    os << date.get_date() << endl;
+    return os;
 }

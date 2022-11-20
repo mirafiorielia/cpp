@@ -1,5 +1,9 @@
 #include "book.h"
 
+using std::endl;
+using std::ostream;
+using std::string;
+
 Book::Book()
     : isbn{"n-n-n-x"}, title{"dummy"}, auth_name{"dummy"}, auth_surname{"dummy"}, date{0}, available{true} {
 }
