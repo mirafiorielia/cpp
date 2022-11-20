@@ -18,13 +18,13 @@ int main() {
     std::cout << "(book1 == book2) -> " << (book1 == book2) << std::endl;
     std::cout << "(book2 == book3) -> " << (book2 == book3) << std::endl;
     std::cout << "book2 -> " << book2;
-    std::cout << "book3 check isbn -> " << book3.check_isbn();
-    std::cout << "book4 check isbn -> " << book4.check_isbn();
-    std::cout << "book5 check isbn -> " << book5.check_isbn();
-    std::cout << "book6 borrow -> " << book6.borrow_book();
-    std::cout << "book6 return -> " << book6.return_book();
-    std::cout << "book7 return -> " << book6.return_book();
-    std::cout << "book7 borrow -> " << book6.borrow_book();
+    std::cout << "book3 check isbn -> " << book3.check_isbn() << std::endl;
+    std::cout << "book4 check isbn -> " << book4.check_isbn() << std::endl;
+    std::cout << "book5 check isbn -> " << book5.check_isbn() << std::endl;
+    std::cout << "book6 borrow -> " << book6.borrow_book() << std::endl;
+    std::cout << "book6 return -> " << book6.return_book() << std::endl;
+    std::cout << "book7 return -> " << book6.return_book() << std::endl;
+    std::cout << "book7 borrow -> " << book6.borrow_book() << std::endl;
 
     return 0;
 }
