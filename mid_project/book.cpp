@@ -2,14 +2,19 @@
 
 using std::endl;
 using std::ostream;
+using std::regex;
 using std::string;
 
 Book::Book()
-    : isbn{"n-n-n-x"}, title{"dummy"}, auth_name{"dummy"}, auth_surname{"dummy"}, date{0}, available{true} {
+    : isbn{"nnn-nnn-nnn-x"}, title{"dummy"}, auth_name{"dummy"}, auth_surname{"dummy"}, date{Date()}, available{true} {
 }
 
-Book::Book(string isbn, string title, string auth_name,
-           string auth_surname, int date, bool available)
+Book::Book(std::string auth_name, std::string auth_surname, std::string title, std::string isbn)
+    : isbn{isbn}, title{title}, auth_name{auth_name}, auth_surname{auth_surname}, date{Date()}, available{true} {
+}
+
+Book::Book(std::string auth_name, std::string auth_surname, std::string title,
+           std::string isbn, Date date = Date(), bool available = true)
     : isbn{isbn}, title{title}, auth_name{auth_name}, auth_surname{auth_surname}, date{date}, available{available} {
 }
 
@@ -29,7 +34,7 @@ string Book::get_auth_surname() const {
     return auth_surname;
 }
 
-int Book::get_date() const {
+Date Book::get_date() const {
     return date;
 }
 
@@ -38,19 +43,34 @@ bool Book::is_available() const {
 }
 
 bool Book::borrow_book() {
-    if (is_available()) {
-        available = false;
-    }
+    if (is_available()) available = false;
     return available;
-    // TODO else throw invalid
 }
 
 bool Book::return_book() {
-    if (!is_available()) {
-        available = true;
-    }
+    if (!is_available()) available = true;
     return available;
-    // TODO else throw invalid
+}
+
+bool Book::check_isbn() {
+    for (int i = 0; i < 4; i++) {
+        if (i < 3) {
+            string token = isbn.substr(i, isbn.find('-'));
+
+            if (token.length() != 3) return false;
+
+            for (char c : token)
+                if (!isdigit(c)) return false;
+
+        } else {
+            string token = isbn.substr(i, isbn.find('-'));
+
+            if (token.length() != 1) return false;
+
+            return !regex_match(token, regex(("((\\+|-)?[[:digit:]]+)(\\.(([[:digit:]]+)?))?")));
+        }
+    }
+    return true;
 }
 
 bool Book::operator==(const Book& book) const {

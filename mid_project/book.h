@@ -1,27 +1,32 @@
 #include <iostream>
+#include <regex>
 #include <string>
+
+#include "date.h"
 
 class Book {
    public:
     // constructors
     Book();
-    Book(std::string isbn, std::string title, std::string auth_name,
-         std::string auth_surname, int date, bool available);
+    Book(std::string auth_name, std::string auth_surname, std::string title, std::string isbn);
+    Book(std::string auth_name, std::string auth_surname, std::string title,
+         std::string isbn, Date date, bool available);
 
     // destructor
     ~Book();
+
     // get general info funcs
     std::string get_isbn() const;          // return book isbn
     std::string get_title() const;         // return book title
     std::string get_auth_name() const;     // return book author name
     std::string get_auth_surname() const;  // return book author surname
-    int get_date() const;                  // return book copyright date
+    Date get_date() const;                 // return book copyright date
     bool is_available() const;             // return if book is available
 
     // usefull funcs for the user
     bool borrow_book();  // borrow book from library
     bool return_book();  // return book to the library
-    // bool is_isbn_valid(); // check book isbn
+    bool check_isbn();   // check book isbn
 
     bool operator==(const Book &book) const;
     bool operator!=(const Book &book) const;
@@ -29,6 +34,6 @@ class Book {
 
    private:
     std::string isbn, title, auth_name, auth_surname;  // general info
-    int date;                                          // TODO switch to Date class
+    Date date;                                         // copyright date
     bool available;                                    // book status
 };

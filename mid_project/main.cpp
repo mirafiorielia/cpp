@@ -1,26 +1,14 @@
 #include <iostream>
-#include <string>
 
-//#include "rational.h"
+#include "book.h"
+#include "date.h"
 
-using namespace std;
+int main() {
+    Book my_favourite_book("David", "Foster Wallace", "Una cosa divertente che non farò mai più", "8878-521-837-4");
+    Book my_favourite_book2("Elia", "Mirafiori", "C++ fatto easy", "888-521-837-5");
 
-void clearPointer(void *);
-
-int main()
-{
-    int a[10];
-    int b[10];
-
-    int *p = &a[9];
-    *p = 11;
-    a[9] = 6;
-
-    cout << p << '\n';
-    cout << *p << '\n';
-
-    delete p;
-    p = nullptr;
+    std::cout << (my_favourite_book == my_favourite_book2) << std::endl;
+    std::cout << my_favourite_book2;
 
     return 0;
 }

@@ -14,7 +14,7 @@ class Date {
     // constructors
     Date();
     Date(int year, int month, int day);
-    
+
     // destructor
     ~Date();
 
