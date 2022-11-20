@@ -24,3 +24,10 @@ int main() {
 
     return 0;
 }
+
+/*
+unix commands to run this project
+g++ -c main.cpp book.cpp date.cpp enums.cpp
+g++ -o main main.o book.o date.o enums.o
+./main
+*/
