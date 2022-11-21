@@ -7,7 +7,7 @@ using std::string;
 using std::to_string;
 
 /*
-#authors:
+#authors group_42:
 @Elia Mirafiori 2008772
 @Davide Iannello 2009661
 @Alberto Celadin xxx

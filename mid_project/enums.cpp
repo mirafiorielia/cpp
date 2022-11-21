@@ -1,6 +1,6 @@
 
 /*
-#authors:
+#authors group_42:
 @Elia Mirafiori 2008772
 @Davide Iannello 2009661
 @Alberto Celadin xxx
