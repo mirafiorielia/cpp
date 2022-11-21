@@ -15,13 +15,17 @@ int main() {
     Book book6("Pippo", "Baudo", "C++ fatto easy", "888-521-321-E");    // test borrow and return book
     Book book7("Mike", "Wasowsky", "C++ fatto easy", "888-521-123-E");  // test borrow and return book
 
-    std::cout << "(book1 == book2) -> " << (book1 == book2) << std::endl;
-    std::cout << "(book2 == book3) -> " << (book2 == book3) << std::endl;
-    std::cout << "book2 -> " << book2;
+    std::cout << "(book1 == book2) -> " << (book1 == book2) << std::endl; // test overload == 
+    std::cout << "(book2 == book3) -> " << (book2 == book3) << std::endl; // test overload == 
+    std::cout << "book2 -> " << book2; //test overload << 
+
+    //tests to check the isbn
     std::cout << "book3 check isbn -> " << book3.check_isbn() << std::endl;
     std::cout << "book4 check isbn -> " << book4.check_isbn() << std::endl;
     std::cout << "book5 check isbn -> " << book5.check_isbn() << std::endl;
-    std::cout << "book6 borrow -> " << book6.borrow_book() << std::endl;
+
+    //tests to borrow or return a book
+    std::cout << "book6 borrow -> " << book6.borrow_book() << std::endl;  
     std::cout << "book6 return -> " << book6.return_book() << std::endl;
     std::cout << "book7 return -> " << book6.return_book() << std::endl;
     std::cout << "book7 borrow -> " << book6.borrow_book() << std::endl;
@@ -30,7 +34,7 @@ int main() {
 }
 
 /*
-unix commands to run this project
+unix commands to compile, build and run this project
 g++ -c main.cpp book.cpp date.cpp enums.cpp
 g++ -o main main.o book.o date.o enums.o
 ./main
