@@ -16,6 +16,8 @@ int main() {
     std::vector<Book> shelf(10);  // book vector
 
     Book book1("David", "Foster Wallace", "Una cosa divertente che non farò mai più", "878-521-837-4");  // default book
+
+    /* DEBUG CODE
     Book book2("Elia", "Mirafiori", "C++ fatto easy", "888-521-837-E");                                  // should be equal
     Book book3("Elia", "Mirafiori", "C++ fatto easy", "888-521-837-E");                                  // should be equal
 
@@ -48,6 +50,7 @@ int main() {
     std::cout << "book8 date -> " << book8.get_date() << std::endl;
     std::cout << "book9 date -> " << book9.get_date() << std::endl;
     std::cout << "book10 date -> " << book10.get_date() << std::endl;
+    */
 
     return 0;
 }
