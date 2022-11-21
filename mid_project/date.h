@@ -3,6 +3,16 @@
 
 #include "enums.cpp"
 
+/*
+#authors:
+@Elia Mirafiori 2008772
+@Davide Iannello 2009661
+@Alberto Celadin xxx
+
+#date: 21 Nov 2022
+
+#version: 1.0.0
+*/
 class Date {
    public:
     // constructors

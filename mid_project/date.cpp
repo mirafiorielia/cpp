@@ -6,6 +6,16 @@ using std::ostream;
 using std::string;
 using std::to_string;
 
+/*
+#authors:
+@Elia Mirafiori 2008772
+@Davide Iannello 2009661
+@Alberto Celadin xxx
+
+#date: 21 Nov 2022
+
+#version: 1.0.0
+*/
 // default constructor
 Date::Date()
     : year{0}, month{Month(9)}, day{26} {

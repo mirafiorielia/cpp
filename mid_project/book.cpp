@@ -7,6 +7,16 @@ using std::regex;
 using std::string;
 using std::vector;
 
+/*
+#authors:
+@Elia Mirafiori 2008772
+@Davide Iannello 2009661
+@Alberto Celadin xxx
+
+#date: 21 Nov 2022
+
+#version: 1.0.0
+*/
 // constructor without any argument
 Book::Book()
     : isbn{"nnn-nnn-nnn-x"}, title{"dummy"}, auth_name{"dummy"}, auth_surname{"dummy"}, date{Date()}, available{true} {
