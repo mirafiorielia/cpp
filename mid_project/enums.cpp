@@ -1,6 +1,5 @@
 // month 0..11
-enum Month
-{
+enum Month {
     january = 0,
     february,
     march,

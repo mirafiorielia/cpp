@@ -9,13 +9,13 @@ using std::to_string;
 // default constructor
 Date::Date()
     : year{0}, month{Month(9)}, day{26} {
-    if (!is_valid()) this->year = 0;
+    if (!is_valid()) set_year(0);
 }
 
 // constructor that needs year, month, day in order
 Date::Date(int year, int month, int day)
     : year{year}, month{Month(month)}, day{day} {
-    if (!is_valid()) this->year = 0;
+    if (!is_valid()) set_year(0);
 }
 
 // returns the year
@@ -38,6 +38,29 @@ string Date::get_date() const {
     if (get_year() == 0) return "invalid date";
     return to_string(get_day()) + ' ' + to_string(get_month()) + ' ' + to_string(get_year());
 }
+
+// set year
+void Date::set_year(const int &year) {
+    this->year = year;
+}
+
+// set month
+void Date::set_month(const int &month) {
+    this->month = Month(month);
+}
+
+// set day
+void Date::set_day(const int &day) {
+    this->day = day;
+}
+
+// set date
+void Date::set_date(const int &year, const int &month, const int &day) {
+    this->year = year;
+    this->month = Month(month);
+    this->day = day;
+}
+// set year
 
 // leap year check
 bool Date::is_leap() const {
@@ -96,7 +119,7 @@ overload ostream "<<" operator to output the book informations
 output example:
 date -> 26 09 2000
 */
-ostream& operator<<(ostream& os, const Date& date) {
+ostream &operator<<(ostream &os, const Date &date) {
     os << date.get_date() << endl;
     return os;
 }

@@ -107,26 +107,6 @@ bool Book::return_book() {
     return available;
 }
 
-vector<string> split(string isbn, char delimiter) {
-    vector<string> tokens;  // init vector with tokens
-    string temp = "";       // temp token
-
-    // iterate throw the length of the isbn
-    for (int i = 0; i < (int)isbn.length(); i++) {
-        // If cur char is not del, then append it to the cur "word", otherwise
-        // you have completed the word, print it, and start a new word.
-        if (isbn[i] != delimiter) {
-            temp += isbn[i];
-        } else {
-            tokens.push_back(temp);
-            temp = "";
-        }
-    }
-
-    tokens.push_back(temp);
-    return tokens;
-}
-
 /*
 checks if the isbn inserted is valid or not
 the isbn should look like n-n-n-x with
@@ -156,6 +136,26 @@ bool Book::check_isbn(const string& isbn) const {
     }
 
     return true;
+}
+
+vector<string> split(string isbn, char delimiter) {
+    vector<string> tokens;  // init vector with tokens
+    string temp = "";       // temp token
+
+    // iterate throw the length of the isbn
+    for (int i = 0; i < (int)isbn.length(); i++) {
+        // If current char is not del, then append it to the cur "word", otherwise
+        // you have completed the word, print it, and start a new word.
+        if (isbn[i] != delimiter) {
+            temp += isbn[i];
+        } else {
+            tokens.push_back(temp);
+            temp = "";
+        }
+    }
+
+    tokens.push_back(temp);
+    return tokens;
 }
 
 // overload "==" operator that checks if two books are the same based on their isbn

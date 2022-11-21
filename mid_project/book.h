@@ -12,9 +12,6 @@ class Book {
     Book(std::string auth_name, std::string auth_surname, std::string title,
          std::string isbn, Date date, bool available);
 
-    // destructor
-    //~Book();
-
     // getter functions
     std::string get_isbn() const;          // return book isbn
     std::string get_title() const;         // return book title
