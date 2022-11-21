@@ -13,7 +13,10 @@ int main() {
     Book book5("Alberto", "Mirafiori", "C++ fatto easy", "988-521-837-+");  // should give invalid isbn
 
     Book book6("Pippo", "Baudo", "C++ fatto easy", "888-521-321-E");    // test borrow and return book
-    Book book7("Mike", "Wasowsky", "C++ fatto easy", "888-521-123-E");  // test borrow and return book
+    Book book7("Mike", "Wazowsky", "C++ fatto easy", "777-521-123-E");  // test borrow and return book
+
+    Book book8("Date book", "Balala", "C++ fatto easy", "777-521-123-E", Date(2000, 9, 26), true);  // test date and availability
+    Book book9("Dorian", "Grey", "C++ fatto easy", "323-521-123-E", Date(2001, 11, 20), false);  // test date and availability
 
     std::cout << "(book1 == book2) -> " << (book1 == book2) << std::endl; // test overload == 
     std::cout << "(book2 == book3) -> " << (book2 == book3) << std::endl; // test overload == 
@@ -27,8 +30,12 @@ int main() {
     //tests to borrow or return a book
     std::cout << "book6 borrow -> " << book6.borrow_book() << std::endl;  
     std::cout << "book6 return -> " << book6.return_book() << std::endl;
-    std::cout << "book7 return -> " << book6.return_book() << std::endl;
-    std::cout << "book7 borrow -> " << book6.borrow_book() << std::endl;
+    std::cout << "book7 return -> " << book7.return_book() << std::endl;
+    std::cout << "book7 borrow -> " << book7.borrow_book() << std::endl;
+
+    //test date
+    std::cout << "book8 date -> " << book8.get_date() << std::endl;
+    std::cout << "book9 date -> " << book9.get_date() << std::endl;
 
     return 0;
 }

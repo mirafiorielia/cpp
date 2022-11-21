@@ -84,9 +84,14 @@ x = char that can be a number or a letter with size of 1
 example: 000-000-000-A
 */
 bool Book::check_isbn() {
+    cout << "\nISBN: " << isbn << endl;
+
     for (int i = 0; i < 4; i++) {
         if (i < 3) {
             string token = isbn.substr(i, isbn.find('-'));
+
+            cout << "TOKEN 1: " << token << endl;
+            cout << "LENGTH: " << token.length() << endl;
 
             if (token.length() != 3) return false;
 
@@ -95,6 +100,8 @@ bool Book::check_isbn() {
 
         } else {
             string token = isbn.substr(i, isbn.find('-'));
+
+            cout << "TOKEN 2: " << token << endl;
 
             if (token.length() != 1) return false;
 
