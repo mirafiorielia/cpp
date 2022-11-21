@@ -5,6 +5,7 @@ using std::endl;
 using std::ostream;
 using std::regex;
 using std::string;
+using std::vector;
 
 // constructor without any argument
 Book::Book()
@@ -76,6 +77,26 @@ bool Book::return_book() {
     return available;
 }
 
+vector<string> split(string isbn, char delimiter) {
+    vector<string> tokens;
+
+    string temp = "";
+
+    for (int i = 0; i < (int)isbn.length(); i++) {
+        // If cur char is not del, then append it to the cur "word", otherwise
+        // you have completed the word, print it, and start a new word.
+        if (isbn[i] != delimiter) {
+            temp += isbn[i];
+        } else {
+            tokens.push_back(temp);
+            temp = "";
+        }
+    }
+
+    tokens.push_back(temp);
+    return tokens;
+}
+
 /*
 checks if the isbn inserted is valid or not
 the isbn should look like n-n-n-x with
@@ -86,9 +107,12 @@ example: 000-000-000-A
 bool Book::check_isbn() {
     cout << "\nISBN: " << isbn << endl;
 
-    for (int i = 0; i < 4; i++) {
+    vector<string> tokens = split(get_isbn(), '-');
+    cout << "SIZE: " << tokens.size() << endl;
+
+    for (int i = 0; i < tokens.size(); i++) {
         if (i < 3) {
-            string token = isbn.substr(i, isbn.find('-'));
+            string token = tokens.at(i);
 
             cout << "TOKEN 1: " << token << endl;
             cout << "LENGTH: " << token.length() << endl;
@@ -99,15 +123,17 @@ bool Book::check_isbn() {
                 if (!isdigit(c)) return false;
 
         } else {
-            string token = isbn.substr(i, isbn.find('-'));
+            string token = tokens.at(i);
 
             cout << "TOKEN 2: " << token << endl;
+            cout << "LENGTH: " << token.length() << endl;
 
             if (token.length() != 1) return false;
 
-            return !regex_match(token, regex(("((\\+|-)?[[:digit:]]+)(\\.(([[:digit:]]+)?))?")));
+            return iswalnum(token[0]) != 0;
         }
     }
+
     return true;
 }
 
