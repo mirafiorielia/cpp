@@ -1,5 +1,6 @@
 #include "date.h"
 
+using std::cout;
 using std::endl;
 using std::ostream;
 using std::string;
@@ -8,13 +9,13 @@ using std::to_string;
 // default constructor
 Date::Date()
     : year{0}, month{Month(9)}, day{26} {
-    if (!is_valid()) year = 0;
+    if (!is_valid()) this->year = 0;
 }
 
 // constructor that needs year, month, day in order
 Date::Date(int year, int month, int day)
     : year{year}, month{Month(month)}, day{day} {
-    if (!is_valid()) year = 0;
+    if (!is_valid()) this->year = 0;
 }
 
 // returns the year
@@ -56,7 +57,7 @@ bool Date::is_leap() const {
 }
 
 // function to check month or day is in range
-bool Date::check_date(int x, int max, int min = 1) {
+bool Date::validate_date(int x, int max, int min = 1) {
     if (x < min || x > max) return false;
     return true;
 }
@@ -70,21 +71,21 @@ bool Date::is_valid() {
     int m = get_month();  // get month
     int d = get_day();    // get day
 
-    if (!check_date(d, 11, 0)) return false;  // check month between 0 and 11 ref: enums.cpp
+    if (!validate_date(m, 11, 0)) return false;  // check month between 0 and 11 ref: enums.cpp
 
     // check month with 30 days
     if (m == 3 || m == 5 || m == 8 || m == 10) {
-        if (!check_date(d, 30)) return false;  // check day between 1 and 30
+        if (!validate_date(d, 30)) return false;  // check day between 1 and 30
     }
 
-    if (m == 1) {                                  // check if month is feb
-        if (is_leap()) {                           // check if leap year
-            if (!check_date(d, 29)) return false;  // check day between 1 and 29
+    if (m == 1) {                                     // check if month is feb
+        if (is_leap()) {                              // check if leap year
+            if (!validate_date(d, 29)) return false;  // check day between 1 and 29
         }
-        if (!check_date(d, 28)) return false;  // check day between 1 and 28
+        if (!validate_date(d, 28)) return false;  // check day between 1 and 28
     }
 
-    if (!check_date(d, 31)) return false;  // check day between 1 and 31
+    if (!validate_date(d, 31)) return false;  // check day between 1 and 31
 
     return true;
 }

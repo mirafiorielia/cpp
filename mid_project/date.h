@@ -25,7 +25,7 @@ class Date {
     std::string get_date() const;  // get date
 
     bool is_leap() const;                      // check if the year is leap
-    bool check_date(int x, int max, int min);  // check if x is between min and max
+    bool validate_date(int x, int max, int min);  // check if x is between min and max
     bool is_valid();                           // check if the date received is valid
 
     friend std::ostream& operator<<(std::ostream& os, const Date& date);
