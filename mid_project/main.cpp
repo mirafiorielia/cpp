@@ -16,26 +16,28 @@ int main() {
     Book book7("Mike", "Wazowsky", "C++ fatto easy", "777-521-123-E");  // test borrow and return book
 
     Book book8("Date book", "Balala", "C++ fatto easy", "777-521-123-E", Date(2000, 9, 26), true);  // test date and availability
-    Book book9("Dorian", "Grey", "C++ fatto easy", "323-521-123-E", Date(2001, 11, 20), false);  // test date and availability
+    Book book9("Dorian", "Grey", "C++ fatto easy", "323-521-123-E", Date(2001, 11, 20), false);     // test date and availability
+    Book book10("Dorian", "Grey", "C++ fatto easy", "323-521-123-E", Date(1000, 0, 35), false);     // test date and availability
 
-    std::cout << "(book1 == book2) -> " << (book1 == book2) << std::endl; // test overload == 
-    std::cout << "(book2 == book3) -> " << (book2 == book3) << std::endl; // test overload == 
-    std::cout << "book2 -> " << book2; //test overload << 
+    std::cout << "(book1 == book2) -> " << (book1 == book2) << std::endl;  // test overload ==
+    std::cout << "(book2 == book3) -> " << (book2 == book3) << std::endl;  // test overload ==
+    std::cout << "book2 -> " << book2;                                     // test overload <<
 
-    //tests to check the isbn
-    std::cout << "book3 check isbn -> " << book3.check_isbn() << std::endl;
-    std::cout << "book4 check isbn -> " << book4.check_isbn() << std::endl;
-    std::cout << "book5 check isbn -> " << book5.check_isbn() << std::endl;
+    // tests to check the isbn
+    std::cout << "book3 check isbn -> " << book3.check_isbn(book3.get_isbn()) << std::endl;
+    std::cout << "book4 check isbn -> " << book4.check_isbn(book4.get_isbn()) << std::endl;
+    std::cout << "book5 check isbn -> " << book5.check_isbn(book5.get_isbn()) << std::endl;
 
-    //tests to borrow or return a book
-    std::cout << "book6 borrow -> " << book6.borrow_book() << std::endl;  
+    // tests to borrow or return a book
+    std::cout << "book6 borrow -> " << book6.borrow_book() << std::endl;
     std::cout << "book6 return -> " << book6.return_book() << std::endl;
     std::cout << "book7 return -> " << book7.return_book() << std::endl;
     std::cout << "book7 borrow -> " << book7.borrow_book() << std::endl;
 
-    //test date
+    // test date
     std::cout << "book8 date -> " << book8.get_date() << std::endl;
     std::cout << "book9 date -> " << book9.get_date() << std::endl;
+    std::cout << "book10 date -> " << book10.get_date() << std::endl;
 
     return 0;
 }

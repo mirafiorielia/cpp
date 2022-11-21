@@ -15,7 +15,7 @@ class Book {
     // destructor
     //~Book();
 
-    // get general info funcs
+    // getter functions
     std::string get_isbn() const;          // return book isbn
     std::string get_title() const;         // return book title
     std::string get_auth_name() const;     // return book author name
@@ -23,10 +23,18 @@ class Book {
     Date get_date() const;                 // return book copyright date
     bool is_available() const;             // return if book is available
 
+    // setter functions
+    void set_isbn(const std::string &isbn);                  // set book isbn
+    void set_title(const std::string &title);                // set book title
+    void set_auth_name(const std::string &auth_name);        // set book author name
+    void set_auth_surname(const std::string &auth_surname);  // set book author surname
+    void set_date(const Date &date);                         // set book copyright date
+    void set_availability(const bool &available);            // set book availability
+
     // usefull funcs for the user
-    bool borrow_book();  // borrow book from library
-    bool return_book();  // return book to the library
-    bool check_isbn();   // check book isbn
+    bool borrow_book();                              // borrow book from library
+    bool return_book();                              // return book to the library
+    bool check_isbn(const std::string &isbn) const;  // check book isbn
 
     bool operator==(const Book &book) const;
     bool operator!=(const Book &book) const;
