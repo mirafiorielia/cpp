@@ -97,21 +97,33 @@ void Book::set_date(const Date& date) {
     this->date = date;
 }
 
-// set available
-void Book::set_availability(const bool& available) {
-    this->available = available;
-}
-
 // set available to false if the book is available
-bool Book::borrow_book() {
-    if (is_available()) set_availability(false);
-    return available;
+void Book::borrow_book() {
+    if (is_available()) {
+        cout << "book borrowed correctly" << endl;
+        set_availability(false);
+        return;
+    }
+
+    cout << "book not available" << endl;
+    return;
 }
 
 // set available to true if the book is not available
-bool Book::return_book() {
-    if (!is_available()) set_availability(true);
-    return available;
+void Book::return_book() {
+    if (!is_available()) {
+        cout << "book returned correctly" << endl;
+        set_availability(true);
+        return;
+    }
+
+    cout << "book is already returned" << endl;
+    return;
+}
+
+// set available
+void Book::set_availability(const bool& available) {
+    this->available = available;
 }
 
 /*

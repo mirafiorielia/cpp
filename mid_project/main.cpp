@@ -43,7 +43,7 @@ int main() {
 
     std::cout << "(my_favourite_book == book2) -> " << (my_favourite_book == book2) << std::endl;  // test overload ==
     std::cout << "(book2 == book3) -> " << (book2 == book3) << std::endl;                          // test overload ==
-    std::cout << "book2 -> " << book2;                                                             // test overload <<
+    std::cout << "book2 -> " << book2 << std::endl;                                                // test overload <<
 
     // tests to check the isbn
     std::cout << "book3 check isbn -> " << book3.check_isbn(book3.get_isbn()) << std::endl;
@@ -51,10 +51,13 @@ int main() {
     std::cout << "book5 check isbn -> " << book5.check_isbn(book5.get_isbn()) << std::endl;
 
     // tests to borrow or return a book
-    std::cout << "book6 borrow -> " << book6.borrow_book() << std::endl;
-    std::cout << "book6 return -> " << book6.return_book() << std::endl;
-    std::cout << "book7 return -> " << book7.return_book() << std::endl;
-    std::cout << "book7 borrow -> " << book7.borrow_book() << std::endl;
+    book6.borrow_book();
+    book6.return_book();
+    std::cout << "book6 is_available -> " << book6.is_available() << std::endl;
+
+    book7.return_book();
+    book7.borrow_book();
+    std::cout << "book7 is_available -> " << book7.is_available() << std::endl;
 
     // test date
     std::cout << "book8 date -> " << book8.get_date() << std::endl;

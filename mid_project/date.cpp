@@ -18,7 +18,7 @@ using std::to_string;
 */
 // default constructor
 Date::Date()
-    : year{0}, month{Month(9)}, day{26} {
+    : year{0}, month{Month(0)}, day{0} {
     if (!is_valid()) set_year(0);
 }
 

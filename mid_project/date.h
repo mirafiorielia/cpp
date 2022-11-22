@@ -38,7 +38,7 @@ class Date {
 
    private:
     int year;
-    Month month;
+    Month month;  // jan = 0, ..., dec = 11
     int day;
 
     bool is_leap() const;                               // check if the year is leap

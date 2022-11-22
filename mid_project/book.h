@@ -42,8 +42,8 @@ class Book {
     void set_availability(const bool &available);            // set book availability
 
     // usefull funcs for the user
-    bool borrow_book();                              // borrow book from library
-    bool return_book();                              // return book to the library
+    void borrow_book();                              // borrow book from library
+    void return_book();                              // return book to the library
     bool check_isbn(const std::string &isbn) const;  // check book isbn
     bool check_date() const;                         // check book date
 
