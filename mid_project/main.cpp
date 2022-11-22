@@ -15,12 +15,20 @@
 int main() {
     std::vector<Book> shelf(10);  // book vector
 
-    Book book1("David", "Foster Wallace", "Una cosa divertente che non farò mai più", "878-521-837-4");  // default book
-    Book book11{"Elia", "Foster Wallace", "Una cosa divertente che non farò mai più", "878-521-837-4"};  // default book
+    Book my_favourite_book("David", "Foster Wallace", "Una cosa divertente che non farò mai più", "878-521-837-4");  // default book
 
-    /* DEBUG CODE
-    Book book2("Elia", "Mirafiori", "C++ fatto easy", "888-521-837-E");                                  // should be equal
-    Book book3("Elia", "Mirafiori", "C++ fatto easy", "888-521-837-E");                                  // should be equal
+    // TEST CODE
+    shelf[0].set_title("TEST VECTOR");
+    shelf[0].set_auth_name("IO");
+    shelf[0].set_auth_surname("SEMPRE IO");
+    shelf[0].set_isbn("666-666-666-6");
+    shelf[0].set_date(Date(2022, 10, 22));
+    shelf[0].set_availability(true);
+
+    std::cout << "shelf[0] -> " << shelf[0];  
+
+    Book book2("Elia", "Mirafiori", "C++ fatto easy", "888-521-837-E");  // should be equal
+    Book book3("Elia", "Mirafiori", "C++ fatto easy", "888-521-837-E");  // should be equal
 
     Book book4("Davide", "Mirafiori", "C++ fatto easy", "a88-521-837-E");   // should give invalid isbn
     Book book5("Alberto", "Mirafiori", "C++ fatto easy", "988-521-837-+");  // should give invalid isbn
@@ -32,9 +40,9 @@ int main() {
     Book book9("Dorian", "Grey", "C++ fatto easy", "323-521-123-E", Date(2001, 11, 20), false);     // test date and availability
     Book book10("Dorian", "Grey", "C++ fatto easy", "323-521-123-E", Date(1000, 0, 35), false);     // test date and availability
 
-    std::cout << "(book1 == book2) -> " << (book1 == book2) << std::endl;  // test overload ==
-    std::cout << "(book2 == book3) -> " << (book2 == book3) << std::endl;  // test overload ==
-    std::cout << "book2 -> " << book2;                                     // test overload <<
+    std::cout << "(my_favourite_book == book2) -> " << (my_favourite_book == book2) << std::endl;  // test overload ==
+    std::cout << "(book2 == book3) -> " << (book2 == book3) << std::endl;                          // test overload ==
+    std::cout << "book2 -> " << book2;                                                             // test overload <<
 
     // tests to check the isbn
     std::cout << "book3 check isbn -> " << book3.check_isbn(book3.get_isbn()) << std::endl;
@@ -51,7 +59,8 @@ int main() {
     std::cout << "book8 date -> " << book8.get_date() << std::endl;
     std::cout << "book9 date -> " << book9.get_date() << std::endl;
     std::cout << "book10 date -> " << book10.get_date() << std::endl;
-    */
+
+    Book book11{"Elia", "Foster Wallace", "Una cosa divertente che non farò mai più", "878-521-837-4"};  // default book
 
     return 0;
 }
@@ -67,4 +76,7 @@ OR
 
 g++ -o main main.cpp book.cpp date.cpp enums.cpp
 ./main
+
+unix command to build with cmake:
+cmake -Bbuild -DCMAKE_BUILD_TYPE=Release
 */

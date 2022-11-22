@@ -127,6 +127,8 @@ example: 000-000-000-A
 bool Book::check_isbn(const string& isbn) const {
     vector<string> tokens = split(isbn, '-');
 
+    if (tokens.size() != 4) return false;  // check isbn components
+
     for (int i = 0; i < tokens.size(); i++) {
         if (i < 3) {
             string token = tokens.at(i);
@@ -148,6 +150,7 @@ bool Book::check_isbn(const string& isbn) const {
     return true;
 }
 
+// helper function to split our isbn var with a delimiter
 vector<string> Book::split(const string& isbn, const char delimiter) const {
     vector<string> tokens;  // init vector with tokens
     string temp = "";       // temp token
@@ -166,6 +169,11 @@ vector<string> Book::split(const string& isbn, const char delimiter) const {
 
     tokens.push_back(temp);
     return tokens;
+}
+
+// checks if the date is valid or not
+bool Book::check_date() const {
+    return get_date().is_valid();
 }
 
 // overload "==" operator that checks if two books are the same based on their isbn

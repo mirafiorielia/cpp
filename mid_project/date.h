@@ -36,17 +36,15 @@ class Date {
 
     bool is_valid();  // check if the date received is valid
 
-    //friend std::ostream &operator<<(std::ostream &os, const Date &date);
-
    private:
     int year;
     Month month;
     int day;
 
-    bool is_leap() const;                         // check if the year is leap
+    bool is_leap() const;                               // check if the year is leap
     bool validate_date(int x, int max, int min) const;  // check if x is between min and max
 };
 
 std::ostream &operator<<(std::ostream &os, const Date &date);
 
-#endif //date_h
+#endif  // date_h

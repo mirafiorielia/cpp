@@ -45,11 +45,10 @@ class Book {
     bool borrow_book();                              // borrow book from library
     bool return_book();                              // return book to the library
     bool check_isbn(const std::string &isbn) const;  // check book isbn
+    bool check_date() const;                         // check book date
 
-    bool operator==(const Book &book) const;
-    bool operator!=(const Book &book) const;
-    
-    //friend std::ostream &operator<<(std::ostream &os, const Book &book);
+    bool operator==(const Book &book) const;  // overloading default operator
+    bool operator!=(const Book &book) const;  // overloading default operator
 
    private:
     std::string isbn, title, auth_name, auth_surname;  // general info
@@ -61,4 +60,4 @@ class Book {
 
 std::ostream &operator<<(std::ostream &os, const Book &book);
 
-#endif //book_h
+#endif  // book_h
