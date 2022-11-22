@@ -19,10 +19,9 @@ using std::vector;
 */
 // constructor without any argument
 Book::Book()
-    : isbn{"nnn-nnn-nnn-x"}, title{"dummy"}, auth_name{"dummy"}, auth_surname{"dummy"}, date{Date()}, available{true} {
+    : isbn{"nnn-nnn-nnn-x"}, title{"plch"}, auth_name{"plch"}, auth_surname{"plch"}, date{Date()}, available{true} {
     if (!check_isbn(isbn)) {
         isbn = "invalid isbn";
-        // cout << get_isbn() << endl;
     }
 }
 
@@ -31,7 +30,6 @@ Book::Book(std::string auth_name, std::string auth_surname, std::string title, s
     : isbn{isbn}, title{title}, auth_name{auth_name}, auth_surname{auth_surname}, date{Date()}, available{true} {
     if (!check_isbn(isbn)) {
         isbn = "invalid isbn";
-        // out << get_isbn() << endl;
     }
 }
 
@@ -41,7 +39,6 @@ Book::Book(std::string auth_name, std::string auth_surname, std::string title,
     : isbn{isbn}, title{title}, auth_name{auth_name}, auth_surname{auth_surname}, date{date}, available{available} {
     if (!check_isbn(isbn)) {
         isbn = "invalid isbn";
-        // cout << get_isbn() << endl;
     }
 }
 

@@ -21,11 +21,12 @@ int main() {
     shelf[0].set_title("TEST VECTOR");
     shelf[0].set_auth_name("IO");
     shelf[0].set_auth_surname("SEMPRE IO");
-    shelf[0].set_isbn("666-666-666-6");
+    shelf[0].set_isbn("758-865-787-A");
     shelf[0].set_date(Date(2022, 10, 22));
     shelf[0].set_availability(true);
 
-    std::cout << "shelf[0] -> " << shelf[0];  
+    std::cout << "shelf[0] -> " << shelf[0];
+    std::cout << "shelf[1] -> " << shelf[1];
 
     Book book2("Elia", "Mirafiori", "C++ fatto easy", "888-521-837-E");  // should be equal
     Book book3("Elia", "Mirafiori", "C++ fatto easy", "888-521-837-E");  // should be equal
