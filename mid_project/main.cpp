@@ -6,7 +6,7 @@
 #authors group_42:
 @Elia Mirafiori 2008772
 @Davide Iannello 2009661
-@Alberto Celadin xxx
+@Alberto Celadin 2007950
 
 #date: 21 Nov 2022
 
@@ -16,6 +16,7 @@ int main() {
     std::vector<Book> shelf(10);  // book vector
 
     Book book1("David", "Foster Wallace", "Una cosa divertente che non farò mai più", "878-521-837-4");  // default book
+    Book book11{"Elia", "Foster Wallace", "Una cosa divertente che non farò mai più", "878-521-837-4"};  // default book
 
     /* DEBUG CODE
     Book book2("Elia", "Mirafiori", "C++ fatto easy", "888-521-837-E");                                  // should be equal
@@ -56,8 +57,14 @@ int main() {
 }
 
 /*
-unix commands to compile, build and run this project
+unix commands to compile, build and run this project:
+
 g++ -c main.cpp book.cpp date.cpp enums.cpp
 g++ -o main main.o book.o date.o enums.o
+./main
+
+OR
+
+g++ -o main main.cpp book.cpp date.cpp enums.cpp
 ./main
 */

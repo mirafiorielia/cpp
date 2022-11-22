@@ -1,3 +1,6 @@
+#ifndef date_h
+#define date_h
+
 #include <iostream>
 #include <string>
 
@@ -7,7 +10,7 @@
 #authors group_42:
 @Elia Mirafiori 2008772
 @Davide Iannello 2009661
-@Alberto Celadin xxx
+@Alberto Celadin 2007950
 
 #date: 21 Nov 2022
 
@@ -31,14 +34,19 @@ class Date {
     void set_day(const int &day);                                      // set date day
     void set_date(const int &year, const int &month, const int &day);  // set date
 
-    bool is_leap() const;                         // check if the year is leap
-    bool validate_date(int x, int max, int min);  // check if x is between min and max
-    bool is_valid();                              // check if the date received is valid
+    bool is_valid();  // check if the date received is valid
 
-    friend std::ostream &operator<<(std::ostream &os, const Date &date);
+    //friend std::ostream &operator<<(std::ostream &os, const Date &date);
 
    private:
     int year;
     Month month;
     int day;
+
+    bool is_leap() const;                         // check if the year is leap
+    bool validate_date(int x, int max, int min) const;  // check if x is between min and max
 };
+
+std::ostream &operator<<(std::ostream &os, const Date &date);
+
+#endif //date_h

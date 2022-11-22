@@ -1,3 +1,6 @@
+#ifndef book_h
+#define book_h
+
 #include <iostream>
 #include <regex>
 #include <string>
@@ -8,7 +11,7 @@
 #authors group_42:
 @Elia Mirafiori 2008772
 @Davide Iannello 2009661
-@Alberto Celadin xxx
+@Alberto Celadin 2007950
 
 #date: 21 Nov 2022
 
@@ -45,10 +48,17 @@ class Book {
 
     bool operator==(const Book &book) const;
     bool operator!=(const Book &book) const;
-    friend std::ostream &operator<<(std::ostream &os, const Book &book);
+    
+    //friend std::ostream &operator<<(std::ostream &os, const Book &book);
 
    private:
     std::string isbn, title, auth_name, auth_surname;  // general info
     Date date;                                         // copyright date
     bool available;                                    // book status
+
+    std::vector<std::string> split(const std::string &isbn, const char delimiter) const;
 };
+
+std::ostream &operator<<(std::ostream &os, const Book &book);
+
+#endif //book_h

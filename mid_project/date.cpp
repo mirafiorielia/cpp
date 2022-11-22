@@ -10,7 +10,7 @@ using std::to_string;
 #authors group_42:
 @Elia Mirafiori 2008772
 @Davide Iannello 2009661
-@Alberto Celadin xxx
+@Alberto Celadin 2007950
 
 #date: 21 Nov 2022
 
@@ -90,7 +90,7 @@ bool Date::is_leap() const {
 }
 
 // function to check month or day is in range
-bool Date::validate_date(int x, int max, int min = 1) {
+bool Date::validate_date(int x, int max, int min = 1) const {
     if (x < min || x > max) return false;
     return true;
 }

@@ -11,7 +11,7 @@ using std::vector;
 #authors group_42:
 @Elia Mirafiori 2008772
 @Davide Iannello 2009661
-@Alberto Celadin xxx
+@Alberto Celadin 2007950
 
 #date: 21 Nov 2022
 
@@ -148,7 +148,7 @@ bool Book::check_isbn(const string& isbn) const {
     return true;
 }
 
-vector<string> split(string isbn, char delimiter) {
+vector<string> Book::split(const string& isbn, const char delimiter) const {
     vector<string> tokens;  // init vector with tokens
     string temp = "";       // temp token
 
