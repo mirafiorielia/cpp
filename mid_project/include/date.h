@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-#include "enums.cpp"
+#include "../src/enums.cpp"
 
 /*
 #authors group_42:

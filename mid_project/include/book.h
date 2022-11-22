@@ -1,3 +1,12 @@
+//#authors group_42:
+//@Elia Mirafiori 2008772
+//@Davide Iannello 2009661
+//@Alberto Celadin 2007950
+//
+//#date: 21 Nov 2022
+//
+//#version: 1.0.0
+
 #ifndef book_h
 #define book_h
 
@@ -7,16 +16,6 @@
 
 #include "date.h"
 
-/*
-#authors group_42:
-@Elia Mirafiori 2008772
-@Davide Iannello 2009661
-@Alberto Celadin 2007950
-
-#date: 21 Nov 2022
-
-#version: 1.0.0
-*/
 class Book {
    public:
     // constructors

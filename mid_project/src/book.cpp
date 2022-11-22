@@ -1,4 +1,13 @@
-#include "book.h"
+//#authors group_42:
+//@Elia Mirafiori 2008772
+//@Davide Iannello 2009661
+//@Alberto Celadin 2007950
+//
+//#date: 21 Nov 2022
+//
+//#version: 1.0.0
+
+#include "../include/book.h"
 
 using std::cout;
 using std::endl;
@@ -7,16 +16,6 @@ using std::regex;
 using std::string;
 using std::vector;
 
-/*
-#authors group_42:
-@Elia Mirafiori 2008772
-@Davide Iannello 2009661
-@Alberto Celadin 2007950
-
-#date: 21 Nov 2022
-
-#version: 1.0.0
-*/
 // constructor without any argument
 Book::Book()
     : isbn{"nnn-nnn-nnn-x"}, title{"plch"}, auth_name{"plch"}, auth_surname{"plch"}, date{Date()}, available{true} {

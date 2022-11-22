@@ -1,17 +1,16 @@
+//#authors group_42:
+//@Elia Mirafiori 2008772
+//@Davide Iannello 2009661
+//@Alberto Celadin 2007950
+//
+//#date: 21 Nov 2022
+//
+//#version: 1.0.0
+
 #include <iostream>
 
-#include "book.h"
+#include "../include/book.h"
 
-/*
-#authors group_42:
-@Elia Mirafiori 2008772
-@Davide Iannello 2009661
-@Alberto Celadin 2007950
-
-#date: 21 Nov 2022
-
-#version: 1.0.0
-*/
 int main() {
     std::vector<Book> shelf(10);  // book vector
 

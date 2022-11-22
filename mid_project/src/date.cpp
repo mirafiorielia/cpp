@@ -1,4 +1,13 @@
-#include "date.h"
+//#authors group_42:
+//@Elia Mirafiori 2008772
+//@Davide Iannello 2009661
+//@Alberto Celadin 2007950
+//
+//#date: 21 Nov 2022
+//
+//#version: 1.0.0
+
+#include "../include/date.h"
 
 using std::cout;
 using std::endl;
@@ -6,16 +15,6 @@ using std::ostream;
 using std::string;
 using std::to_string;
 
-/*
-#authors group_42:
-@Elia Mirafiori 2008772
-@Davide Iannello 2009661
-@Alberto Celadin 2007950
-
-#date: 21 Nov 2022
-
-#version: 1.0.0
-*/
 // default constructor
 Date::Date()
     : year{0}, month{Month(0)}, day{0} {
